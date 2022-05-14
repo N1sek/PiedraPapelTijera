@@ -27,32 +27,53 @@ do
 
 	case $jugada_maquina in
 		Piedra|piedra)
-			if [[ $jugada_persona == "Piedra" || $jugada_persona == "piedra" ]]; then
-				printf "${YELLOW}Empate!${ENDCOLOR}\n"
-			elif [[ $jugada_persona == "Papel" || $jugada_persona == "papel" ]]; then
-				printf "${GREEN}Has ganado! ${ENDCOLOR}\n"
-			else
-				printf "${RED}Has perdido. Suerte para la proxima!${ENDCOLOR}\n"
-			fi
-			;;
+			case $jugada_persona in
+				Piedra|piedra)
+					printf "${YELLOW}Empate!${ENDCOLOR}\n"
+					;;
+				Papel|papel)
+					printf "${GREEN}Has ganado!${ENDCOLOR}\n"
+					;;
+				Tijera|tijera)
+					printf "${RED}Has perdido!${ENDCOLOR}\n"
+					;;
+				*)
+					printf "No reconozco esa palabra!\n"
+					;;
+			esac
+		;;	
 		Papel|papel)
-			if [[ $jugada_persona == "Papel" || $jugada_persona == "papel" ]]; then
-		                printf "${YELLOW}Empate!${ENDCOLOR}\n"
-		        elif [[ $jugada_persona == "Tijera" || $jugada_persona == "tijera" ]]; then
-		                printf "${GREEN}Has ganado! ${ENDCOLOR}\n"
-		        else
-		                printf "${RED}Has perdido. Suerte para la proxima!${ENDCOLOR}\n"
-			fi
-			;;
+			case $jugada_persona in
+				Piedra|piedra)
+					printf "${RED}Has perdido!${ENDCOLOR}\n"
+					;;
+				Papel|papel)
+					printf "${YELLOW}Empate!${ENDCOLOR}\n"
+					;;
+				Tijera|tijera)
+					printf "${GREEN}Has ganado!${ENDCOLOR}\n"
+					;;
+				*)
+					printf "No reconozco esa palabra!\n"
+					;;
+			esac
+		;;
 		Tijera|tijera)
-			if [[ $jugada_persona == "Tijera" || $jugada_persona == "tijera" ]]; then
-		                printf "${YELLOW}Empate!${ENDCOLOR}\n"
-		        elif [[ $jugada_persona == "Piedra" || $jugada_persona == "piedra" ]]; then
-		                printf "${GREEN}Has ganado! ${ENDCOLOR}\n"
-		        else
-		                printf "${RED}Has perdido. Suerte para la proxima!${ENDCOLOR}\n"
-			fi
-			;;
+			case $jugada_persona in
+				Piedra|piedra)
+					printf "${GREEN}Has ganado!${ENDCOLOR}\n"
+					;;
+				Papel|papel)
+					printf "${RED}Has perdido!${ENDCOLOR}\n"
+					;;
+				Tijera|tijera)
+					printf "${YELLOW}Empate!${ENDCOLOR}\n"	
+					;;
+				*)
+					printf "No reconozco esa palabra!\n"
+					;;
+			esac
+		;;
 	esac
 	
 
